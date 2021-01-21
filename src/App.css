@@ -1,0 +1,183 @@
+body {
+	padding: 0;
+	font-family: sans-serif;
+    user-select: none;
+   -webkit-user-select: none; 
+   -khtml-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none; 
+}
+
+#nav{	
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	display: flex;	
+	background-color: orange;
+	align-items: center;
+}
+#brand-div{
+	width: 50%;
+}
+#nav-brand{
+	margin-left: 15px;
+	font-family: 'Lobster', cursive;
+	color: white;
+	font-size: 40px;
+	font-weight: 600;
+}
+#ul-div{
+	width: 50%;
+}
+ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+a{
+	text-decoration: none;
+}
+
+
+#post, #search, #profile{
+	margin: 0 5px;
+	color: white;
+	padding: 10px 15px;
+	border: 2px solid white;
+	border-radius: 5px;
+	font-weight: 600;
+}
+
+#post:active, #search:active, #profile:active{
+	color: orange;
+	background-color: white;
+}
+
+form{
+	display: flex;
+	flex-direction: column;
+}
+
+#input-username, #input-password, #signup-name, #signup-username, #signup-password{
+	border: 2px solid orange;
+	padding: 10px;
+	border-radius: 10px;
+	display: block;
+	margin: 5px auto;
+	width: 50%;
+}
+#input-username:focus, #input-password:focus, #signup-name:focus, #signup-username:focus, #signup-password:focus, button:focus{
+	outline: none;
+}
+
+#input-button, #signup-button{
+	width: 200px;
+	color: white;
+	background-color: orange;
+	border: 2px solid orange;
+	border-radius: 10px;
+	padding: 5px;
+	display: block;
+	margin: 5px auto;
+	font-size: 20px;
+}
+#input-button:active, #signup-button:active{
+	background-color: white;
+	color: orange;
+}
+
+.switch-auth{
+	display: block;
+	margin: 0 auto;
+}
+
+.warning{
+	display: block;
+	margin: 0 auto;
+	color: red;
+}
+#logout-button{
+	display: block;
+	margin: 0 auto;
+	font-size: 20px;
+	border-radius: 10px;
+	color: red;
+	border: 3px solid red;
+	width: 50%;
+	padding: 10px;
+	background-color: white;
+}
+#logout-button:active{
+	color: white;
+	background-color: red;
+}
+#go-home-button{
+	display: block;
+	margin: 10px auto;
+	font-size: 20px;
+	border-radius: 10px;
+	padding: 10px;
+	background-color: white;
+	border: 3px solid green;
+	color: green;
+	width: 50%;
+}
+#go-home-button:active{
+	color: white;
+	background-color: green;
+}
+
+#google-login{
+	display: block;
+	margin: 10px auto;
+	width: 50%;
+	padding: 10px;
+	border: 2px solid orange;
+	font-size: 17px;
+	border-radius: 10px;
+	color: black;
+	text-align: center;
+}
+#or-login{
+	text-align: center;
+	font-size: 15px;
+	font-weight: 500;
+	color: #585c59;
+}
+.iconify{
+	font-size: 25px;
+	margin-right: 5px;
+	display: inline-block;
+	vertical-align: middle;
+}
+#loggedin-name{
+	text-align: center;
+	color: #363836;
+}
+@media(max-width: 480px){
+	#brand-div{
+		width: 15vw;
+	}
+	#nav-brand{
+		margin-left: 5px;
+	}
+	#ul-div{
+		width: 85vw;
+	}
+	ul{
+		justify-content: flex-end;
+	}
+	#post, #search, #profile{
+		margin: 0 2px;
+		padding: 7px 10px;
+	}
+	#go-home-button, #logout-button, #google-login, #input-username, #input-password, #signup-name, #signup-username, #signup-password{
+		width: 75%;
+	}
+	.iconify{
+		font-size: 15px;
+	}
+}
