@@ -4,14 +4,24 @@ const cors = require('cors');
 const session = require('express-session');
 const morgan = require('morgan');
 const user = require('./routes/user')
+const upload = require("./routes/upload")
 const myDB = require('./connection')
 const MongoStore = require("connect-mongo")(session)
 const passport = require('passport')
 const auth = require('./auth')
+const cloudinary = require('cloudinary')
+cloudinary.config({ 
+  cloud_name: "ozcom", 
+  api_key: "378179385259691", 
+  api_secret: "YFNTkouuzemd1E_utvxZoNZGuqY"
+})
+
+const formData = require('express-form-data')
 process.env.MONGO_URI="mongodb://ozair_ayaz:ozair_03235146562@cluster0-shard-00-00.hrntf.mongodb.net:27017,cluster0-shard-00-01.hrntf.mongodb.net:27017,cluster0-shard-00-02.hrntf.mongodb.net:27017/ozcom?ssl=true&replicaSet=atlas-66q731-shard-0&authSource=admin&retryWrites=true&w=majority"
 const store = new MongoStore({url: process.env.MONGO_URI})
 let port = 5000;
 const app = express();
+app.use(formData.parse())
 app.use(morgan('dev'))
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
@@ -33,6 +43,19 @@ myDB(async (client) => {
 		console.log(req.user)
 		res.send("Working...\n Yay.....")
 	})
+	app.use("/upload", upload(cloudinary))
+	// app.route("/upload").post((req, res)=>{
+	// 	let values = Object.values(req.files)
+	// 	 const promises = values.map(image => cloudinary.uploader.upload(image.path))
+ //  
+	// 	  Promise
+	// 	    .all(promises)
+	// 	    .then(results => {
+	// 	    	let arr = results.map(item=>item.url)
+	// 	    	res.send(arr)
+	// 	    })
+	// })
+	
 	app.use('/user', user(userDB))
 
   }).catch((e)=>{

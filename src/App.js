@@ -3,6 +3,7 @@ import './App.css'
 import {BrowserRouter, Switch, Route, withRouter} from 'react-router-dom';
 import Navbar from "./components/navbar"
 import Home from "./components/home"
+import Post from "./components/post"
 import Profile from "./components/profile"
 import axios from 'axios'
 export default withRouter(
@@ -41,6 +42,7 @@ export default withRouter(
 						 	<br />
 						 	<Switch>
 						 		<Route path = "/" exact render = {()=><Home state={this.state} updateUser = {this.updateUser} />} />
+						 		<Route path="/post" render = {()=><Post /> } />
 						 		<Route path = "/profile" render = {()=><Profile  history = {this.props.history} state={this.state} updateUser = {this.updateUser} /> } />
 						 	</Switch>
 					</div>
