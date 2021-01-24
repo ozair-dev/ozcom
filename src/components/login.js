@@ -41,6 +41,7 @@ export default class Login extends React.Component{
 			return (
 				<div>
 					<a id="google-login" href="http://localhost:5000/user/auth/google" ><span className="iconify" data-icon="grommet-icons:google" data-inline="false"></span><span style = {{display: 'inlineBlock', verticalAlign: "middle"}} >Login With Google</span></a>
+					<a id="facebook-login" href="http://localhost:5000/user/auth/facebook" ><span className="iconify" data-icon="logos:facebook" data-inline="false"></span><span style = {{display: 'inlineBlock', verticalAlign: "middle"}} >Login With Facebook</span></a>
 					<p id="or-login">Or Login With Email address</p>
 					<form onSubmit = {this.handleSubmit} >
 						<input name="username" id="input-username" type = 'text' placeholder="Enter your username..." onChange= {this.handleChange} required />

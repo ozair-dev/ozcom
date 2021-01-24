@@ -3,7 +3,41 @@ const LocalStragtegy = require('passport-local').Strategy
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const ObjectID = require("mongodb").ObjectID
 const bcrypt = require('bcrypt')
+const FacebookStrategy = require("passport-facebook").Strategy
 function main(userDB){
+
+	passport.use(
+		new FacebookStrategy(
+			{
+				clientID: "1108163072930015",
+				clientSecret: "293d65ca8de913949d5367a43a666ffe",
+				callbackURL: "http://localhost:5000/user/auth/facebook/callback",
+				profileFields: ['email', 'name']
+			},
+			(accessToken, refreshToken, profile, done)=>{
+				let profileData = profile._json;
+				let name = `${profileData.first_name} ${profileData.last_name}` 
+				userDB.findOneAndUpdate({username: profileData.id},
+					{
+						$setOnInsert: {
+							username: profileData.id,
+							name: name
+						},
+						$set: {
+							last_login: new Date()
+						}
+					},
+					{
+						upsert: true,
+						new: true
+					}, (err, user)=>{
+						if(err) return console.log(err);
+						console.log(user.value)
+						done(null,user.value)
+					}
+					)			}
+			)
+		)
 
 
 	passport.use(new GoogleStrategy({

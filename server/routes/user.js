@@ -35,6 +35,11 @@ module.exports = (userDB)=>{
 		}
 		console.log("already logged out")
 	})
+
+	router.get("/auth/facebook", passport.authenticate('facebook'))
+	router.get("/auth/facebook/callback", passport.authenticate('facebook', {failureRedirect: 'http://localhost:3000'}), (req, res)=>{
+		res.redirect("http://localhost:3000")
+	})
 	router.get("/auth/google", passport.authenticate("google", {scope: ['profile', 'email']}))
 	router.get("/auth/google/redirect", passport.authenticate('google', {failureRedirect: 'http://localhost:3000'}), (req, res)=>{
 		res.redirect("http://localhost:3000")

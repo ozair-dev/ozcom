@@ -38,23 +38,13 @@ app.use(passport.initialize());
 app.use(passport.session());
 myDB(async (client) => {
 	const userDB = await client.db('ozcom').collection('users');
+	let productsDB= await client.db("ozcom").collection("items")
 	auth(userDB)
 	app.route("/").get((req, res)=>{
 		console.log(req.user)
 		res.send("Working...\n Yay.....")
 	})
-	app.use("/upload", upload(cloudinary))
-	// app.route("/upload").post((req, res)=>{
-	// 	let values = Object.values(req.files)
-	// 	 const promises = values.map(image => cloudinary.uploader.upload(image.path))
- //  
-	// 	  Promise
-	// 	    .all(promises)
-	// 	    .then(results => {
-	// 	    	let arr = results.map(item=>item.url)
-	// 	    	res.send(arr)
-	// 	    })
-	// })
+	app.use("/upload", upload(cloudinary, productsDB))
 	
 	app.use('/user', user(userDB))
 

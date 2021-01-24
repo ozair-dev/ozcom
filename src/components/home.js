@@ -5,10 +5,6 @@ export default class Home extends React.Component{
 		super(props)
 	}
 	componentDidMount(){
-		axios.get("/user/")
-		.then(res=> {
-			this.props.updateUser(res.data.user)
-		})
 	}
 	render(){
 		return (

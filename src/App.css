@@ -7,6 +7,9 @@ body {
    -moz-user-select: none;
    -ms-user-select: none; 
 }
+p{
+	word-wrap: break-word;
+}
 
 #nav{	
 	position: fixed;
@@ -16,6 +19,7 @@ body {
 	display: flex;	
 	background-color: orange;
 	align-items: center;
+	z-index: 1;
 }
 #brand-div{
 	width: 50%;
@@ -26,6 +30,9 @@ body {
 	color: white;
 	font-size: 40px;
 	font-weight: 600;
+}
+#nav-brand:focus{
+	outline: none;
 }
 #ul-div{
 	width: 50%;
@@ -106,7 +113,7 @@ form{
 	border-radius: 10px;
 	color: red;
 	border: 3px solid red;
-	width: 50%;
+	width: 52%;
 	padding: 10px;
 	background-color: white;
 }
@@ -114,23 +121,42 @@ form{
 	color: white;
 	background-color: red;
 }
-#go-home-button{
+#go-home-button, #my-ads, #my-favourites{
+	text-align: center;
 	display: block;
 	margin: 10px auto;
 	font-size: 20px;
 	border-radius: 10px;
 	padding: 10px;
 	background-color: white;
-	border: 3px solid green;
-	color: green;
 	width: 50%;
+}
+#go-home-button{
+	color: green;
+	border: 3px solid green;
+}
+#my-ads{
+	border: 3px solid navy;
+	color: navy;
+}
+#my-favourites{
+	color: #d400e3;
+	border: 3px solid #d400e3;
+}
+#my-favourites:active{
+	background-color: #d400e3;
+	color: white;
+}
+#my-ads:active{
+	color: white;
+	background-color: navy;
 }
 #go-home-button:active{
 	color: white;
 	background-color: green;
 }
 
-#google-login{
+#google-login, #facebook-login{
 	display: block;
 	margin: 10px auto;
 	width: 50%;
@@ -141,6 +167,7 @@ form{
 	color: black;
 	text-align: center;
 }
+
 #or-login{
 	text-align: center;
 	font-size: 15px;
@@ -157,9 +184,144 @@ form{
 	text-align: center;
 	color: #363836;
 }
+label{
+	display: block;
+	margin: 10px auto;
+	font-size: 17px;
+}
+select{
+	width: 52vw;
+	padding: 10px;
+	border: 2px solid orange;
+	border-radius: 10px;
+}
+select:focus{
+	outline: none;
+}
+#imgs-upload{
+	padding: 5px 0;
+	border-radius: 10px;
+	width: 52vw;
+	border: 2px solid orange;
+	background-color: white;
+}
+#imgs-upload:focus{
+	outline: none;
+}
+#title,#price, #description, #contact{
+	width: 50vw;
+	border: 2px solid orange;
+	padding: 10px;
+	border-radius: 10px;
+}
+#title:focus,#price:focus, #description:focus, #contact:focus{
+	outline: none;
+}
+#goto-login{
+	display: block;
+	margin: 0 auto;
+	color: orange;
+	width: 50%;
+	font-size: 20px;
+	padding: 10px;
+	border: 2px solid orange;
+	border-radius: 10px;
+	text-align: center;
+}
+#goto-login:active{
+	color: white;
+	background-color: orange;
+}
+#upload-button{
+	display: block;
+	margin: 10px auto;
+	width: 250px;
+	background-color: orange;
+	color: white;
+	font-size: 20px;
+	border: none;
+	border-radius: 10px;
+	padding: 10px;
+}
+
+#upload-button:disabled{
+	background-color: #ffb75e;
+}
+
+#view-ad-div{
+	display: block;
+	margin: 20px auto;
+	border: 3px solid orange;
+	/*border-radius: ;*/
+	padding: 10px;
+	width: 400px;
+}
+#view-ad-img{
+	display: block;
+	margin: 0 auto;
+	/*width: auto;*/
+	max-width: 100%;
+	height: 300px;
+	border-radius: 5px;
+}
+#view-ad-img-navigation, #view-ad-title, #view-ad-condition, #view-ad-price, #view-ad-contact, #view-ad-description, #view-ad-uploadDate, #view-ad-lastUpdated, #view-ad-owner{
+	display: block;
+	margin: 10px auto;
+	width: 90%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.img-nav-button{
+	border-radius: 50%;
+	width: 60px;
+	height: 60px;
+	color:white;
+	font-size: 25px;
+	background-color: orange;
+	border: none;
+}
+.view-ad-detail-para{
+	width: 49%;
+	font-size: 18px;
+}
+.img-nav-button:active{
+	background-color: white;
+	color: orange;
+	border: 3px solid orange;
+}
+
+/*#view-ad-detail div:nth-child(even){
+	background-color: orange;
+	border-radius: 10px;
+	padding: 0 10px;
+}*/
+
+#view-ad-detail div:nth-child(odd){
+	padding: 0 10px;
+	background-color: orange;
+	border-radius: 10px;
+}
+#view-ad-controls{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+#edit-button{
+	border: none;
+	background-color: #0cf054;
+	color: white;
+	padding: 10px;
+	border-radius: 5px;
+	font-size: 20px;
+
+}
+#view-ad-fav-button:active{
+	transform: scale(0.9);
+}
 @media(max-width: 480px){
 	#brand-div{
-		width: 15vw;
+		width: 25vw;
 	}
 	#nav-brand{
 		margin-left: 5px;
@@ -174,10 +336,25 @@ form{
 		margin: 0 2px;
 		padding: 7px 10px;
 	}
-	#go-home-button, #logout-button, #google-login, #input-username, #input-password, #signup-name, #signup-username, #signup-password{
+	#go-home-button, #google-login, #facebook-login, #goto-login, #input-username, #input-password, #signup-name, #signup-username, #signup-password, #my-favourites, #my-ads{
 		width: 75%;
 	}
-	.iconify{
-		font-size: 15px;
+	#logout-button{
+		width: 80%;
+	}
+	#title,#price, #description, #contact{
+		width: 75vw;
+	}
+	select, #upload{
+		width: 80vw;
+	}
+	#goto-login,{
+		width: 75%;
+	}
+	#imgs-upload{
+		width: 80vw;
+	}
+	#view-ad-div{
+		width: 85vw;
 	}
 }

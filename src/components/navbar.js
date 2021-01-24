@@ -8,7 +8,7 @@ export default class Navbar extends React.Component{
 		return (
 			<div id = "nav">
 				<div id= "brand-div">
-					<a href="/" id="nav-brand" >OzCom</a>
+					<Link to="/" id="nav-brand" >OzCom</Link>
 				</div>
 				<div id= "ul-div">
 					<ul id= "ul-items" >

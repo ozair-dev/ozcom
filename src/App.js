@@ -5,6 +5,7 @@ import Navbar from "./components/navbar"
 import Home from "./components/home"
 import Post from "./components/post"
 import Profile from "./components/profile"
+import ViewAd from './components/viewAd'
 import axios from 'axios'
 export default withRouter(
 	class App extends React.Component{
@@ -42,8 +43,10 @@ export default withRouter(
 						 	<br />
 						 	<Switch>
 						 		<Route path = "/" exact render = {()=><Home state={this.state} updateUser = {this.updateUser} />} />
-						 		<Route path="/post" render = {()=><Post /> } />
+						 		<Route path="/post" render = {()=><Post  history = {this.props.history} state={this.state} /> } />
 						 		<Route path = "/profile" render = {()=><Profile  history = {this.props.history} state={this.state} updateUser = {this.updateUser} /> } />
+						 		<Route path="/view-ad" render = {()=><ViewAd  state={this.state} location = {this.props.location}/> } /> 
+						 		<Route path="/edit" render={()=><Post history={this.props.history} location={this.props.location} state={this.state} /> } />
 						 	</Switch>
 					</div>
 				  );
