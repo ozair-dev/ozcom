@@ -24,7 +24,6 @@ export default class Post extends React.Component{
 
 	componentDidMount(){
 		if(this.props.location?.state){
-			console.log(this.props.location.state)
 			this.setState({formData: this.props.location.state})
 
 		}
@@ -81,7 +80,7 @@ export default class Post extends React.Component{
 				<div>
 					<h2 style={{textAlign:'center'}} >Post Your AD</h2>
 					<form onSubmit = {this.handleSubmit} >
-						<label htmlFor="catagory">Select A Catagory: <br/>
+						<label className="post-label"  htmlFor="catagory">Select A Catagory: <br/>
 							<select id="catagory" onChange  = {this.handleChange} value= {this.state.formData.catagory} >
 								<option value= "mobiles">Mobiles</option>
 								<option value="vehicles">Vehicles</option>
@@ -94,25 +93,25 @@ export default class Post extends React.Component{
 								<option value="other">Other</option>
 							</select>
 							</label>
-							<label htmlFor="title">Title: <br/>
-								<input id='title' type='text' placeholder="Choose a title..." value={this.state.formData.title} onChange={this.handleChange} />
+							<label className="post-label"  htmlFor="title">Title: <br/>
+								<input maxlength='30' id='title' type='text' placeholder="Choose a title..." value={this.state.formData.title} onChange={this.handleChange} />
 							</label>
-							<label htmlFor="condition">Condition: <br/>
+							<label className="post-label"  htmlFor="condition">Condition: <br/>
 								<select id='condition' onChange={this.handleChange} value={this.state.formData.condition} >
 									<option value="used" >Used</option>
 									<option value='new'>New</option>
 								</select>
 							</label>
-							<label htmlFor="price">Price: <br/>
-								<input id='price' min="0" type="number" placeholder="Enter the price($)..." onChange={this.handleChange} value={this.state.formData.price} />
+							<label className="post-label"  htmlFor="price">Price: <br/>
+								<input id='price' min="0" max="1000000000" type="number" placeholder="Enter the price($)..." onChange={this.handleChange} value={this.state.formData.price} />
 							</label>
-							<label htmlFor="description" >Description: <br/>
+							<label className="post-label"  htmlFor="description" >Description: <br/>
 								<input id="description" type="description" placeholder="Enter description..." value={this.state.formData.description} onChange={this.handleChange} />
 							</label>
-							<label htmlFor="contact">Contact info: <br/>
+							<label className="post-label"  htmlFor="contact">Contact info: <br/>
 								<input id='contact' type='text' onChange={this.handleChange} placeholder="Email or phone #..." value={this.state.formData.contact} />
 							</label>
-							<label htmlFor="upload">Choose images to upload: <br/>
+							<label className="post-label"  htmlFor="upload">Choose images to upload: <br/>
 								<input id="imgs-upload" onChange = {this.handleFileChange} accept=".jpeg, .png, .jpg" multiple type = 'file' />
 							</label>
 						{this.state.warning&& <p style={{display: 'block', margin: "10px auto"}} >{this.state.warning}</p>}

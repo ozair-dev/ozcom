@@ -1,3 +1,4 @@
+require('dotenv').config()
 const passport = require('passport')
 const LocalStragtegy = require('passport-local').Strategy
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
@@ -9,9 +10,9 @@ function main(userDB){
 	passport.use(
 		new FacebookStrategy(
 			{
-				clientID: "1108163072930015",
-				clientSecret: "293d65ca8de913949d5367a43a666ffe",
-				callbackURL: "http://localhost:5000/user/auth/facebook/callback",
+				clientID: process.env.FACEBOOK_CLIENT_ID,
+				clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+				callbackURL: process.env.FACEBOOK_CALLBACK_URL,
 				profileFields: ['email', 'name']
 			},
 			(accessToken, refreshToken, profile, done)=>{
@@ -32,7 +33,6 @@ function main(userDB){
 						new: true
 					}, (err, user)=>{
 						if(err) return console.log(err);
-						console.log(user.value)
 						done(null,user.value)
 					}
 					)			}
@@ -41,9 +41,9 @@ function main(userDB){
 
 
 	passport.use(new GoogleStrategy({
-		clientID: "893366708424-av6c6mu5f11fru5r05lmnse3r9m5rs7h.apps.googleusercontent.com",
-		clientSecret: "qf2UU1QBWW0GZ-EaatfNSlau",
-		callbackURL: "http://localhost:5000/user/auth/google/redirect",
+		clientID: process.env.GOOGLE_CLIENT_ID,
+		clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+		callbackURL: process.env.GOOGLE_CALLBACK_URL,
 		userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
 	}, (accessToken, refreshToken, profile, cb)=>{
 		userDB.findOneAndUpdate({username: profile._json.email}, {
@@ -56,7 +56,6 @@ function main(userDB){
 			}
 		}, {upsert: true, new: true}, (err, doc)=>{
 			if(err) return cb(err);
-			console.log(doc.value)
 			cb(null, doc.value)
 		})
 			}))
@@ -75,14 +74,12 @@ function main(userDB){
 
 	passport.serializeUser((user, done)=>{
 		console.log('serializeUser called')
-		console.log(user)
 		done(null, user._id)
 	})
 
 	passport.deserializeUser((id, done)=>{
 		console.log("deserializing user")
 	    userDB.findOne({_id: new ObjectID(id)}, (err, doc)=>{
-	    	console.log(doc)
 	      done(null, doc)
 	    })
 	  })

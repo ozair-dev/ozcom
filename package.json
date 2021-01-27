@@ -7,22 +7,6 @@
     "@testing-library/react": "^11.2.3",
     "@testing-library/user-event": "^12.6.0",
     "axios": "^0.21.1",
-    "bcrypt": "^5.0.0",
-    "body-parser": "^1.19.0",
-    "cloudinary": "^1.23.0",
-    "concurrently": "^5.3.0",
-    "connect-mongo": "^3.2.0",
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "express-form-data": "^2.0.14",
-    "express-session": "^1.17.1",
-    "mongodb": "^3.6.3",
-    "morgan": "^1.10.0",
-    "nodemon": "^2.0.7",
-    "passport": "^0.4.1",
-    "passport-facebook": "^3.0.0",
-    "passport-google-oauth20": "^2.0.0",
-    "passport-local": "^1.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
@@ -30,7 +14,7 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "concurrently \"react-scripts start\" \"nodemon server/server.js\"",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -53,5 +37,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:5000"
+  "proxy": "https://ozcom-backend.herokuapp.com"
 }

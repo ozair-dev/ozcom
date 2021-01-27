@@ -22,10 +22,10 @@ export default class LoggedIn extends React.Component{
 			return (
 			<div>
 				<h1 id="loggedin-name" >Logged in as {this.props.state.user.name}</h1>
-				<Link to='/' id = 'go-home-button' >Go Home</Link>
-				<Link to={{pathname: "/view-ad", state: {id: "600c3933ccf01409bfd9088b"}}} id="my-ads" >My Ads</Link>
-				<Link to="/favourites" id="my-favourites">My Favourites</Link>
-				<button onClick = {this.handleLogout} id = "logout-button" >{this.state.logout}</button>
+				<Link to='/' id = 'go-home-button' >Go Home<span className="iconify" style={{marginLeft: 10}} data-icon="ant-design:home-filled" data-inline="false"></span></Link>
+				<Link to={{pathname: "/my-ads", state: {type: 'My Ads', link: "/upload/myuploads"}}} id="my-ads" >My Ads<span className="iconify" style={{marginLeft: 10}} data-icon="jam:write-f" data-inline="false"></span></Link>
+				<Link to={{pathname: "/my-favs", state: {type: 'My Favourites', link: "/upload/favs"}}} id="my-favourites">My Favourites<span className="iconify" style={{marginLeft: 10}} data-icon="bytesize:heart" data-inline="false"></span></Link>
+				<button onClick = {this.handleLogout} id = "logout-button" >{this.state.logout}<span className="iconify" style={{marginLeft: 10}} data-icon="ri:logout-box-r-line" data-inline="false"></span></button>
 			</div>
 			)
 		}

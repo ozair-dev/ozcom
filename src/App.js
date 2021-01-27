@@ -1,11 +1,13 @@
 import React from 'react'
 import './App.css'
-import {BrowserRouter, Switch, Route, withRouter} from 'react-router-dom';
+import {Switch, Route, withRouter} from 'react-router-dom';
 import Navbar from "./components/navbar"
 import Home from "./components/home"
 import Post from "./components/post"
 import Profile from "./components/profile"
 import ViewAd from './components/viewAd'
+import Items from "./components/items"
+import Search from './components/search'
 import axios from 'axios'
 export default withRouter(
 	class App extends React.Component{
@@ -38,15 +40,16 @@ export default withRouter(
 			return (
 					<div className="App">
 							<Navbar />
-						 	<br />
-						 	<br />
-						 	<br />
 						 	<Switch>
 						 		<Route path = "/" exact render = {()=><Home state={this.state} updateUser = {this.updateUser} />} />
 						 		<Route path="/post" render = {()=><Post  history = {this.props.history} state={this.state} /> } />
 						 		<Route path = "/profile" render = {()=><Profile  history = {this.props.history} state={this.state} updateUser = {this.updateUser} /> } />
-						 		<Route path="/view-ad" render = {()=><ViewAd  state={this.state} location = {this.props.location}/> } /> 
+						 		<Route path="/view-ad" render = {()=><ViewAd  state={this.state} history={this.props.history} location = {this.props.location}/> } /> 
 						 		<Route path="/edit" render={()=><Post history={this.props.history} location={this.props.location} state={this.state} /> } />
+						 		<Route path="/my-ads" render={()=><Items location={this.props.location} history={this.props.history} state={this.state} /> } />
+						 		<Route path="/my-favs" render={()=><Items location={this.props.location} history={this.props.history} state={this.state} /> } />
+						 		<Route path="/show-all" render={()=><Items location={this.props.location} history={this.props.history} state={this.state} /> } />
+						 		<Route path="/search" render={()=><Search />} />
 						 	</Switch>
 					</div>
 				  );

@@ -1,11 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Potta+One&display=swap');
 body {
 	padding: 0;
+	margin: 0;
 	font-family: sans-serif;
     user-select: none;
    -webkit-user-select: none; 
    -khtml-user-select: none;
    -moz-user-select: none;
    -ms-user-select: none; 
+}
+.App{
+	padding-top: 60px;
 }
 p{
 	word-wrap: break-word;
@@ -140,8 +145,8 @@ form{
 	color: navy;
 }
 #my-favourites{
-	color: #d400e3;
-	border: 3px solid #d400e3;
+	color: brown;
+	border: 3px solid brown;
 }
 #my-favourites:active{
 	background-color: #d400e3;
@@ -184,7 +189,7 @@ form{
 	text-align: center;
 	color: #363836;
 }
-label{
+.post-label{
 	display: block;
 	margin: 10px auto;
 	font-size: 17px;
@@ -247,21 +252,27 @@ select:focus{
 #upload-button:disabled{
 	background-color: #ffb75e;
 }
-
+#upload-button:active{
+	transform: scale(0.9);
+}
 #view-ad-div{
 	display: block;
 	margin: 20px auto;
 	border: 3px solid orange;
-	/*border-radius: ;*/
 	padding: 10px;
 	width: 400px;
+}
+#view-ad-img-div{
+	height: 300px;
+	width: 100%;
+	display: flex;
+	align-items: center;
 }
 #view-ad-img{
 	display: block;
 	margin: 0 auto;
-	/*width: auto;*/
 	max-width: 100%;
-	height: 300px;
+	max-height: 100%;
 	border-radius: 5px;
 }
 #view-ad-img-navigation, #view-ad-title, #view-ad-condition, #view-ad-price, #view-ad-contact, #view-ad-description, #view-ad-uploadDate, #view-ad-lastUpdated, #view-ad-owner{
@@ -291,12 +302,6 @@ select:focus{
 	border: 3px solid orange;
 }
 
-/*#view-ad-detail div:nth-child(even){
-	background-color: orange;
-	border-radius: 10px;
-	padding: 0 10px;
-}*/
-
 #view-ad-detail div:nth-child(odd){
 	padding: 0 10px;
 	background-color: orange;
@@ -314,14 +319,122 @@ select:focus{
 	padding: 10px;
 	border-radius: 5px;
 	font-size: 20px;
-
+}
+#delete-ad{
+	background-color: red;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	font-size: 20px;
+	padding: 10px;
+}
+#delete-ad:focus{
+	outline: none;
+}
+#delete-ad:active{
+	transform: scale(0.9);
 }
 #view-ad-fav-button:active{
 	transform: scale(0.9);
 }
+
+.card{
+	margin: 10px;
+	width: 190px;
+	border: 2px solid orange;
+	border-radius: 10px;
+}
+
+.card-image{
+	display: block;
+	margin: 0 auto;
+	max-width: 100%;
+	height: 100px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+.card-detail{
+	padding: 3px;
+}
+.card-title{
+	padding-left: 10px;
+	font-weight: bold;
+	word-wrap: break-word;
+	width: 100%;
+	height:15px;
+}
+.card-description{
+	padding-left: 10px;
+	color: gray;
+	font-weight: bold;
+	font-size: 15px;
+	height: 15px;
+	margin: 0;
+}
+.card-price{
+	padding-left: 10px;
+	margin: 0;
+	padding-top: 5px;
+}
+.card-info{
+	display: block;
+	color: white;
+	text-align: center;
+	background-color: orange;
+	padding: 10px 0;
+	width: 70%;
+	margin: 0 auto;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+}
+.card-info{
+	height: 15px;
+}
+
+#items-div, .ads-home-div{
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.showcase-div{
+	margin: 10px 0;
+/*	border: 2px solid #e3e1e1;
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;*/
+}
+.showcase-div-p{
+	background-color: #e3e1e1;
+	padding: 10px;
+	border-radius: 5px;
+	margin: 10px 0;
+}
+.showcase-div-items{
+	display: flex;
+	flex-wrap: wrap;
+}
+.showcase-div-more-info{
+	background-color: orange;
+	color: white;
+	font-size: 20px;
+}
+.showcase-div-show-all{
+	display: block;
+	margin: 5px auto 20px auto;
+	background-color: orange;
+	text-align: center;
+	padding: 10px 10px;
+	width: 100px;
+	font-size: 22px;
+	color: white;
+}
+#home-title{
+	font-family: 'Potta One', cursive;
+}
+
 @media(max-width: 480px){
 	#brand-div{
-		width: 25vw;
+		width: 35vw;
 	}
 	#nav-brand{
 		margin-left: 5px;
@@ -357,4 +470,15 @@ select:focus{
 	#view-ad-div{
 		width: 85vw;
 	}
+	#items-div{
+		justify-content: space-around;
+	}
+	.card{
+		margin: 4px 2px;
+		width: 45vw;
+	}
+	.showcase-div-items{
+		justify-content: space-between;
+	}
+
 }
