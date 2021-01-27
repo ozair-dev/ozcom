@@ -42,7 +42,7 @@ export default class Post extends React.Component{
 		files.forEach((file,i)=>{
 			formData.append(i, file)
 		})
-		axios.post("/upload/imgs", formData)
+		axios.post("https://ozcom-backend.herokuapp.com/upload/imgs", formData)
 		.then(res=>{
 			let data = this.state.formData
 			data.images = res.data
@@ -55,7 +55,7 @@ export default class Post extends React.Component{
 		e.preventDefault()
 		let data = this.state.formData;
 		if(this.props.location?.state){
-			return axios.post("/upload/update", this.state.formData)
+			return axios.post("https://ozcom-backend.herokuapp.com/upload/update", this.state.formData)
 			.then(res=>this.props.history.push({pathname: "/view-ad", state: {id: res.data._id}}))
 			.catch(err=>console.log(err))		
 		}
@@ -69,7 +69,7 @@ export default class Post extends React.Component{
 			}
 
 			this.setState({warning: ""})
-			axios.post("/upload/", data)
+			axios.post("https://ozcom-backend.herokuapp.com/upload/", data)
 			.then(res=>this.props.history.push({'pathname': '/view-ad', state: {id: res.data._id}}))
 			.catch(err=>console.log(err))
 		}

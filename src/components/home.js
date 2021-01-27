@@ -12,7 +12,7 @@ export default class Home extends React.Component{
 		}
 	}
 	componentDidMount(){
-		axios.get("/upload/showcase-data")
+		axios.get("https://ozcom-backend.herokuapp.com/upload/showcase-data")
 		.then(res=> {
 			let data = []
 			for(let i in res.data){

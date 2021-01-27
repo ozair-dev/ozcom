@@ -30,7 +30,7 @@ export default class ViewAd extends React.Component{
 			let 	tempFavourites = favourites.slice(0, index)
 			tempFavourites = tempFavourites.concat(favourites.slice(index+1))
 			data.favourites = tempFavourites;
-			axios.post("/upload/update", data)
+			axios.post("https://ozcom-backend.herokuapp.com/upload/update", data)
 			.then(res=>{
 				this.setState({favourite: false, data: data, favouriteBackground: 'white', favouriteBorder: 'black', favouriteColor: 'black'})
 			})
@@ -38,7 +38,7 @@ export default class ViewAd extends React.Component{
 		}
 		else if(!this.state.favourite){
 			data.favourites.push(this.props.state.user._id)
-			axios.post("/upload/update", data)
+			axios.post("https://ozcom-backend.herokuapp.com/upload/update", data)
 			.then(res=>{
 				this.setState({favourite: true, data: data, favouriteBorder: 'red', favouriteBackground: 'red', favouriteColor: 'white'})
 			})
@@ -67,7 +67,7 @@ export default class ViewAd extends React.Component{
 	}
 	handleDelete(id){
 		if(window.confirm("Do you really want to delete this ad?")){
-			axios.post("/upload/remove", {id: id})
+			axios.post("https://ozcom-backend.herokuapp.com/upload/remove", {id: id})
 			.then(res=>this.props.history.goBack())
 			.catch(err=>console.log(err))
 		}
@@ -76,7 +76,7 @@ export default class ViewAd extends React.Component{
 	componentDidMount(){
 		if(this.props.location.state){
 			let id = this.props.location.state.id
-			axios.post("/upload/ad", {_id: id})
+			axios.post("https://ozcom-backend.herokuapp.com/upload/ad", {_id: id})
 			.then(res=>{
 				let isFav = res.data.favourites.indexOf(this.props.state.user._id)!==(-1);
 				this.setState({data: res.data, img: res.data.images[0], total: res.data.images.length, imgIndex: 0, favourite: isFav, favouriteBorder: isFav?'red':'black', favouriteBackground: isFav?"red":'white', favouriteColor: isFav? 'white':'black'})

@@ -17,7 +17,7 @@ export default class Items extends React.Component{
 			this.props.history.push("/profile")
 		}
 		else{
-			axios.get(this.props.location.state.link)
+			axios.get("https://ozcom-backend.herokuapp.com"+this.props.location.state.link)
 			.then(res=>{
 				if(res.data[0]){
 					this.setState({data: res.data})
