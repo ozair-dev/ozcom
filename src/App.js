@@ -21,7 +21,7 @@ export default withRouter(
 		}
 
 		componentDidMount(){
-			axios.get("https://ozcom-backend.herokuapp.com/user/")
+			axios.get("https://ozcom-backend.herokuapp.com/user")
 			.then(res=>{
 				this.updateUser(res.data.user)
 			})
