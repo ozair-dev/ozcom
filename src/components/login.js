@@ -24,7 +24,12 @@ export default class Login extends React.Component{
 	handleSubmit = (e)=>{
 		e.preventDefault();
 		this.setState({button: "Logging in..."})
-		axios.post('https://ozcom-backend.herokuapp.com/user/', this.state.formData)
+		axios.post('https://ozcom-backend.herokuapp.com/user/', this.state.formData, {
+			    headers: {
+			      'Content-Type': 'application/json'
+			    },
+			    withCredentials: true
+			  })
 		.then(res=>{
 			console.log(res)
 			this.props.updateUser(res.data)
