@@ -21,7 +21,12 @@ export default withRouter(
 		}
 
 		componentDidMount(){
-			axios.get("https://ozcom-backend.herokuapp.com/user")
+			axios.get("https://ozcom-backend.herokuapp.com/user", {
+				headers: {
+			      'Content-Type': 'application/json'
+			    },
+			    { withCredentials: true }
+			  })
 			.then(res=>{
 				console.log("getting user")
 				console.log(res)
