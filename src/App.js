@@ -9,6 +9,7 @@ import ViewAd from './components/viewAd'
 import Items from "./components/items"
 import Search from './components/search'
 import axios from 'axios'
+axios.defaults.withCredentials = true;
 export default withRouter(
 	class App extends React.Component{
 		constructor(props){
@@ -21,12 +22,7 @@ export default withRouter(
 		}
 
 		componentDidMount(){
-			axios.get("https://ozcom-backend.herokuapp.com/user", {
-			    headers: {
-			      'Content-Type': 'application/json'
-			    },
-			    withCredentials: true
-			  })
+			axios.get("https://ozcom-backend.herokuapp.com/user")
 			.then(res=>{
 				console.log("getting user")
 				console.log(res)
