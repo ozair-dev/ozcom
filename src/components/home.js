@@ -17,12 +17,10 @@ export default class Home extends React.Component{
 			let data = []
 			for(let i in res.data){
 				if(res.data[i][0]){
-					console.log(res.data[i][0])
 					data.push({catagory: i, data: res.data[i]})
 				}
 			}
 			this.setState({title: "Get Best Deals On Your Favourite Items",data: data})
-			console.log(this.state.data)
 		})
 		.catch(err=>this.setState({title: "No Data Found..."}))
 	}
