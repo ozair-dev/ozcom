@@ -11,12 +11,7 @@ export default class LoggedIn extends React.Component{
 	}
 	handleLogout = ()=>{
 		this.setState({logout: "Logging out..."})
-		axios.get("https://ozcom-backend.herokuapp.com/user/logout" ,{
-			    headers: {
-			      'Content-Type': 'application/json'
-			    },
-			    withCredentials: true
-			  })
+		axios.get("https://ozcom-backend.herokuapp.com/user/logout")
 		.then(res=>{
 			this.props.updateUser(null)
 		})
