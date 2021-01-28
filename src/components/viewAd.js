@@ -105,7 +105,7 @@ export default class ViewAd extends React.Component{
 					<div id="view-ad-controls">
 						{this.props.state.user._id===this.state.data.uploaderId&&<Link to={{pathname: "/edit", state: this.state.data}} id="edit-button">Edit</Link>}
 						{this.props.state.loggedIn &&<button id="view-ad-fav-button" onClick={this.handleFav} style={{color: this.state.favouriteColor ,padding: 5, border: `2px solid  ${this.state.favouriteBorder}`, borderRadius: 10, backgroundColor: this.state.favouriteBackground}} ><span style={{marginRight: 0}} className="iconify" data-icon="bytesize:heart" data-inline="false"></span></button>}
-						{this.props.state.user._id===this.state.data.uploaderId&&<button id='delete-ad' onClick={()=>this.handleDelete(this.state.data._id) }>Delete</button>}
+						{((this.props.state.user._id===this.state.data.uploaderId)||(this.props.state.user._id==="60097c21bdcf2215db0dc9b4"))&&<button id='delete-ad' onClick={()=>this.handleDelete(this.state.data._id) }>Delete</button>}
 					</div>
 					<div id='view-ad-detail'>
 						<div id='view-ad-title'>
