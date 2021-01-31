@@ -40,10 +40,8 @@ export default class Search extends React.Component{
 		if(formData["$lte"]) data.price['$lte']=formData["$lte"];
 		if(formData["$gte"]) data.price['$gte']=formData["$gte"];
 		if(Object.keys(data.price).length===0) delete data.price;
-		console.log(data)
 		axios.post("https://ozcom-backend.herokuapp.com/upload/search",data)
 		.then(res=>{
-			console.log(res.data)
 			this.setState({advance: "none",
 				formData : {
 					title: "",
@@ -60,7 +58,6 @@ export default class Search extends React.Component{
 			}else{
 				this.setState({searchTitle: "No data found..."})	
 			}
-			console.log(this.state)
 		})
 		.catch(err=>this.setState({searchTitle: "Connection Error..."})) 
 	}
