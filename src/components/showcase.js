@@ -1,7 +1,7 @@
 import Card from './card'
 import {Link} from 'react-router-dom'
 const showcase = (props) => {
-  let cards = props.data.map(data=><Card data ={data}/>)
+  let cards = props.data.map((data,index)=><Card key={index} data ={data}/>)
   return (
     <div className='showcase-div'>
     	<h3 className='showcase-div-p'>{props.catagory.toUpperCase()}</h3>

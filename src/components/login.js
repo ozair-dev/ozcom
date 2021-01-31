@@ -41,7 +41,7 @@ export default class Login extends React.Component{
 		else{
 			return (
 				<div>
-					<a id="google-login" href="https://ozcom-backend.herokuapp.com/user/auth/google" ><span className="iconify" data-icon="grommet-icons:google" data-inline="false"></span><span style = {{display: 'inlineBlock', verticalAlign: "middle"}} >Login With Google</span></a>
+					<pre><a id="google-login" href="https://ozcom-backend.herokuapp.com/user/auth/google" ><span className="iconify" data-icon="grommet-icons:google" data-inline="false"></span><span style = {{display: 'inlineBlock', verticalAlign: "middle"}} >Login With Google </span></a></pre>
 					<a id="facebook-login" href="https://ozcom-backend.herokuapp.com/user/auth/facebook" ><span className="iconify" data-icon="logos:facebook" data-inline="false"></span><span style = {{display: 'inlineBlock', verticalAlign: "middle"}} >Login With Facebook</span></a>
 					<p id="or-login">Or Login With Email address</p>
 					<form onSubmit = {this.handleSubmit} >

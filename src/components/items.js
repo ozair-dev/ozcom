@@ -39,7 +39,7 @@ export default class Items extends React.Component{
 			return (
 				<div>
 					<h1 style={{textAlign: 'center'}}>{this.props.location.state.type}</h1>
-					<div id="items-div">
+					<div className="items-div">
 						{toRender}
 					</div>
 				</div>

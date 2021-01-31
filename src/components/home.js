@@ -27,12 +27,12 @@ export default class Home extends React.Component{
 	render(){
 		let toRender;
 		if(this.state.data[0]){
-			toRender = this.state.data.map(doc=><Showcase data={doc.data} catagory={doc.catagory} />)
+			toRender = this.state.data.map((doc, index)=><Showcase key={index} data={doc.data} catagory={doc.catagory} />)
 		}
 		return (
 
 			<div>
-				{this.state.title?<h2 id="home-title" style={{textAlign: "center"}}>{this.state.title}</h2>:<h1 style={{textAlign: 'center', color: 'gray'}}>Loading...</h1>}
+				{this.state.title?<p id="home-title" style={{textAlign: "center"}}>{this.state.title}</p>:<h1 style={{textAlign: 'center', color: 'gray'}}>Loading...</h1>}
 				<div id="home-ads-div">	
 					{toRender&&toRender}
 				</div>

@@ -8,7 +8,7 @@ export default function Navbar(){
 			<div id= "ul-div">
 				<ul id= "ul-items" >
 					<li><Link to="/post" id ="post">Post</Link></li>
-					{/* <li><Link to="/search" id = "search"><span className="iconify" style={{margin: 0}} data-icon="fe:search" data-inline="false"></span></Link></li> */}
+					<li><Link to="/search" id = "search"><span className="iconify" style={{margin: 0}} data-icon="fe:search" data-inline="false"></span></Link></li>
 					<li><Link to="/profile/login" id = "profile"><span className="iconify" style={{margin: 0}} data-icon="vs:profile" data-inline="false"></span></Link></li>
 				</ul>
 			</div>

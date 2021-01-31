@@ -48,7 +48,7 @@ export default class Post extends React.Component{
 			data.images = res.data
 			this.setState({formData: data, warning: "", disabled: false})
 		})
-		.catch(err=>console.log(err))
+		.catch(err=>this.setState({warning: ""}))
 	}
 
 	handleSubmit(e){
@@ -94,7 +94,7 @@ export default class Post extends React.Component{
 							</select>
 							</label>
 							<label className="post-label"  htmlFor="title">Title: <br/>
-								<input maxlength='30' id='title' type='text' placeholder="Choose a title..." value={this.state.formData.title} onChange={this.handleChange} />
+								<input maxLength='30' id='title' type='text' placeholder="Choose a title..." value={this.state.formData.title} onChange={this.handleChange} />
 							</label>
 							<label className="post-label"  htmlFor="condition">Condition: <br/>
 								<select id='condition' onChange={this.handleChange} value={this.state.formData.condition} >

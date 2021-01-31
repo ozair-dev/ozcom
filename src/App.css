@@ -392,10 +392,6 @@ select:focus{
 	height: 15px;
 }
 
-#items-div, .ads-home-div{
-	display: flex;
-	flex-wrap: wrap;
-}
 
 .showcase-div{
 	margin: 10px 0;
@@ -406,9 +402,9 @@ select:focus{
 	border-radius: 5px;
 	margin: 10px 0;
 }
-.showcase-div-items{
-	display: flex;
-	flex-wrap: wrap;
+.showcase-div-items,.items-div {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, 210px);
 }
 .showcase-div-more-info{
 	background-color: orange;
@@ -426,9 +422,78 @@ select:focus{
 	color: white;
 }
 #home-title{
+	font-size: 30px;
 	font-family: 'Potta One', cursive;
 }
+#search-form{
+	margin: 0 auto;
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+#basic-search{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 10px;
+}
+#search-title,#search-min, #search-max{
+	padding: 10px;
+	border-radius: 5px;
+	border: 2px solid orange;
+	margin-top: 10px;
+}
 
+#search-submit{
+	margin-left: 30px;
+	height: 38px;
+	border-radius: 5px;
+	border: none;
+	width: 100px;
+	background-color: orange;
+	font-size: 20px;
+	color: white;
+}
+#search-submit:active{
+	transform: scale(0.95)
+}
+#search-minmax{
+	display: flex;
+	justify-content: space-around;
+}
+#search-min, #search-max{
+	/*border: 2px solid orange;*/
+}
+
+#search-catagory, #search-condition, #search-minmax{
+	margin: 5px;
+}
+
+#advance-search-button{
+	display: block;
+	margin: 0 auto;
+	margin-top: 10px;
+	border: 2px solid orange;
+	background-color: inherit;
+	font-size: 17px;
+	color: orange;
+	padding: 3px 10px;
+	border-radius: 3px;
+}
+@media(max-width: 850px){
+
+
+	#search-minmax{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}	
+	#search-min, #search-max{
+		margin: 10px;
+		width: 75%;		
+	}
+}
 @media(max-width: 480px){
 	#brand-div{
 		width: 35vw;
@@ -450,13 +515,13 @@ select:focus{
 		width: 75%;
 	}
 	#logout-button{
-		width: 80%;
+		width: 82%;
 	}
 	#title,#price, #description, #contact{
 		width: 75vw;
 	}
 	select, #upload{
-		width: 80vw;
+		width: 82vw;
 	}
 	#goto-login,{
 		width: 75%;
@@ -467,15 +532,20 @@ select:focus{
 	#view-ad-div{
 		width: 85vw;
 	}
-	#items-div{
-		justify-content: space-around;
-	}
 	.card{
-		margin: 4px 2px;
+		margin: 4px 0;
 		width: 45vw;
 	}
-	.showcase-div-items{
-		justify-content: space-around;
+	.showcase-div-items, .items-div {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		justify-items: center;
+	}
+	#home-title{
+		font-size: 23px;
+	}
+	#search-title{
+		width: 50vw;
 	}
 
 }
