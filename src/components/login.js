@@ -26,7 +26,6 @@ export default class Login extends React.Component{
 		this.setState({button: "Logging in..."})
 		axios({method: "post", url: 'https://ozcom-backend.herokuapp.com/user/', data: this.state.formData})
 		.then(res=>{
-			console.log(res)
 			this.props.updateUser(res.data)
 			this.props.history.push("/")
 		

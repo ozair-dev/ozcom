@@ -118,7 +118,7 @@ form{
 	border-radius: 10px;
 	color: red;
 	border: 3px solid red;
-	width: 53%;
+	width: 52%;
 	padding: 10px;
 	background-color: white;
 }
@@ -438,6 +438,12 @@ select:focus{
 	align-items: center;
 	margin: 10px;
 }
+
+#search-title{
+	width: 40vw;
+	border-radius: 10px;
+}
+
 #search-title,#search-min, #search-max{
 	padding: 10px;
 	border-radius: 5px;
