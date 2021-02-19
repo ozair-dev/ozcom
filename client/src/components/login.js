@@ -24,7 +24,7 @@ export default class Login extends React.Component{
 	handleSubmit = (e)=>{
 		e.preventDefault();
 		this.setState({button: "Logging in..."})
-		axios.post("/user/", this.setState.formData)
+		axios.post("/user", this.setState.formData)
 		.then(res=>{
 			this.props.updateUser(res.data)
 			this.props.history.push("/")
