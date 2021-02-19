@@ -24,7 +24,7 @@ export default class Register extends React.Component{
 	handleSubmit = (e)=>{
 		e.preventDefault();
 		this.setState({button: "Signing up..."})
-		axios.post('https://ozcom-backend.herokuapp.com/user/signup', this.state.formData)
+		axios.post('/user/signup', this.state.formData)
 		.then(res=>{
 			this.props.history.push("/profile/login")
 		})

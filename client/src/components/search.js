@@ -40,7 +40,7 @@ export default class Search extends React.Component{
 		if(formData["$lte"]) data.price['$lte']=formData["$lte"];
 		if(formData["$gte"]) data.price['$gte']=formData["$gte"];
 		if(Object.keys(data.price).length===0) delete data.price;
-		axios.post("https://ozcom-backend.herokuapp.com/upload/search",data)
+		axios.post("/upload/search",data)
 		.then(res=>{
 			this.setState({advance: "none",
 				formData : {
