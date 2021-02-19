@@ -4,10 +4,10 @@ process.env.CLOUDINARY_API_KEY="378179385259691";
 process.env.CLOUDINARY_API_SECRET="YFNTkouuzemd1E_utvxZoNZGuqY";
 process.env.FACEBOOK_CLIENT_ID="414334022965656";
 process.env.FACEBOOK_CLIENT_SECRET="0837032f107fa57988a261d71db71fef";
-process.env.FACEBOOK_CALLBACK_URL="https://ozcom-backend.herokuapp.com/user/auth/facebook/callback";
+process.env.FACEBOOK_CALLBACK_URL="https://ozcom.herokuapp.com/user/auth/facebook/callback";
 process.env.GOOGLE_CLIENT_ID="893366708424-uj5hpq1e5fr9mle7tj0pbj7cd1ttmtnc.apps.googleusercontent.com";
 process.env.GOOGLE_CLIENT_SECRET="ztN561AQQUoPad3LQgXbaPK1";
-process.env.GOOGLE_CALLBACK_URL="https://ozcom-backend.herokuapp.com/user/auth/google/callback";
+process.env.GOOGLE_CALLBACK_URL="https://ozcom.herokuapp.com/user/auth/google/callback";
 
 
 const express = require('express');
