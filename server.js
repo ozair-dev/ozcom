@@ -34,11 +34,7 @@ const formData = require('express-form-data')
 const store = new MongoStore({url: process.env.MONGO_URI})
 let port = 5000;
 const app = express();
-app.use(cors({
-	  credentials: true,
-      origin: ["https://ozcom.herokuapp.com","http://localhost:3000"],		
-      methods: ["GET","POST","PUT","OPTIONS","DELETE","PATCH"]
-}));
+app.use(cors());
 
 app.use(formData.parse())
 app.use(morgan('dev'))
