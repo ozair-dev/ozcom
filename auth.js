@@ -61,6 +61,7 @@ function main(userDB){
 			}))
 
 	passport.use(new LocalStragtegy((username, password, done)=>{
+		console.log("username", username)
 		userDB.findOne({username: username}, (err, user)=>{
 			if(!user){
 				return done(null, false, {message: 'Invalid username'})
