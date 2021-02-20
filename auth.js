@@ -18,7 +18,7 @@ function main(userDB){
 			(accessToken, refreshToken, profile, done)=>{
 				let profileData = profile._json;
 				let name = `${profileData.first_name} ${profileData.last_name}` 
-				userDB.findOneAndUpdate({username: profileData.id},
+				userDB.findAndModify({username: profileData.id},{},
 					{
 						$setOnInsert: {
 							username: profileData.id,
@@ -46,7 +46,7 @@ function main(userDB){
 		callbackURL: process.env.GOOGLE_CALLBACK_URL,
 		userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
 	}, (accessToken, refreshToken, profile, cb)=>{
-		userDB.findOneAndUpdate({username: profile._json.email}, {
+		userDB.findAndModify({username: profile._json.email},{}, {
 			$setOnInsert: {
 				username: profile._json.email,
 				name: profile._json.name
