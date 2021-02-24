@@ -62,6 +62,9 @@ myDB(async (client) => {
 	if (process.env.NODE_ENV === 'production') {
 	    app.use(express.static('client/build'));
 	}
+	app.get("*", (req, res)=>{
+		res.redirect("/")
+	})
   }).catch((e)=>{
     app.route('/').get((req, res)=>{
     	res.send("Error loading the page")
