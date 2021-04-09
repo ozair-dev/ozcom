@@ -442,9 +442,12 @@ select:focus{
 #search-title{
 	width: 40vw;
 	border-radius: 10px;
+	padding: 10px;
+	border-radius: 5px;
+	border: 2px solid orange;
 }
 
-#search-title,#search-min, #search-max{
+#search-min, #search-max{
 	padding: 10px;
 	border-radius: 5px;
 	border: 2px solid orange;
