@@ -1,3 +1,32 @@
+# Buy & Sell app built with MERN Stack
+
+See [live demo here](https://ozcom.herokuapp.com)
+
+## Front-end Technologies Used
+- React
+- React-router
+---
+## Backend Technologies used
+- ExpressJS
+- MongoDB
+- PassportJS
+- BcryptJS
+---
+## Fetures
+- User can login with either email-password or Google and Facebook
+- User can post an item for sale
+- User can view items
+- User can add items to favourites
+- User can Search items
+----
+
+## Previews
+
+![](assets/images/0.png)
+![](assets/images/1.png)
+![](assets/images/2.png)
+![](assets/images/3.png)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
